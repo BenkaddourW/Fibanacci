@@ -22,6 +22,7 @@ public class Fibonacci {
      *               Si {@code number} vaut 0, aucun terme n'est affiché.
      *               Si {@code number} vaut 1, seul le premier terme (0) est affiché.
      */
+
     public static void CalculateFibonacciIterative(int number) {
         // Si le nombre demandé est 0, il n'y a rien à afficher
         if (number == 0) return;

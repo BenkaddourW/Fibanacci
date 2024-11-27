@@ -18,6 +18,7 @@ public class Main {
      *
      * @param args Les arguments de la ligne de commande (non utilisés ici).
      */
+
     public static void main(String[] args) {
 
         // Appel de la méthode pour valider l'entrée de l'utilisateur et obtenir un nombre valide
