@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bc104bb-1287-41b4-ba5d-64cfc7a0d036" name="Changes" comment="add the project">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1bc104bb-1287-41b4-ba5d-64cfc7a0d036" name="Changes" comment="add the project" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +18,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -67,7 +72,7 @@
       <workItem from="1732576058989" duration="2825000" />
       <workItem from="1732647890591" duration="34000" />
       <workItem from="1732661292482" duration="5695000" />
-      <workItem from="1732667339150" duration="311000" />
+      <workItem from="1732667339150" duration="543000" />
     </task>
     <task id="LOCAL-00001" summary="add the project">
       <option name="closed" value="true" />
@@ -77,7 +82,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732667365565</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add the project">
+      <option name="closed" value="true" />
+      <created>1732667742729</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732667742729</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add the project">
+      <option name="closed" value="true" />
+      <created>1732667843951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732667843951</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
