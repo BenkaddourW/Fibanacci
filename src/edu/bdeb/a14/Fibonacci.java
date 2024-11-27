@@ -49,6 +49,7 @@ public class Fibonacci {
 
             // Met à jour les variables pour le prochain calcul
             firstNumber = secondNumber;
+
             secondNumber = fibonacciValue;
         }
     }
