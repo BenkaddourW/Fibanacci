@@ -18,16 +18,15 @@ public class Main {
      *
      * @param args Les arguments de la ligne de commande (non utilisés ici).
      */
-
     public static void main(String[] args) {
 
         // Appel de la méthode pour valider l'entrée de l'utilisateur et obtenir un nombre valide
-        int number = getValidNumber();
+        int nombre = obtenirNombreValide();
 
         // Appel de la méthode pour afficher la suite de Fibonacci et mesurer les performances
-        long[] durations = displayFibonacci(number);
+        long[] durées = afficherFibonacci(nombre);
 
         // Appel de la méthode pour comparer les performances des deux méthodes
-        comparePerformance(durations[0], durations[1]);
+        comparerPerformances(durées[0], durées[1]);
     }
 }

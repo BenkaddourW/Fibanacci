@@ -16,74 +16,72 @@ public class Fibonacci {
     /**
      * Calcule et affiche les termes de la suite de Fibonacci en utilisant une approche itérative.
      * Cette méthode affiche les termes successifs de la suite de Fibonacci jusqu'à
-     * la valeur spécifiée par le paramètre {@code number}.
+     * la valeur spécifiée par le paramètre {@code nombre}.
      *
-     * @param number le nombre de termes de la suite de Fibonacci à afficher.
-     *               Si {@code number} vaut 0, aucun terme n'est affiché.
-     *               Si {@code number} vaut 1, seul le premier terme (0) est affiché.
+     * @param nombre le nombre de termes de la suite de Fibonacci à afficher.
+     *               Si {@code nombre} vaut 0, aucun terme n'est affiché.
+     *               Si {@code nombre} vaut 1, seul le premier terme (0) est affiché.
      */
-
-    public static void CalculateFibonacciIterative(int number) {
+    public static void CalculerFibonacciIteratif(int nombre) {
         // Si le nombre demandé est 0, il n'y a rien à afficher
-        if (number == 0) return;
+        if (nombre == 0) return;
 
         // Initialisation des deux premiers termes de la suite
-        BigInteger firstNumber = BigInteger.ZERO;
-        BigInteger secondNumber = BigInteger.ONE;
+        BigInteger premierNombre = BigInteger.ZERO;
+        BigInteger deuxiemeNombre = BigInteger.ONE;
 
         // Affichage du premier terme
-        System.out.print(firstNumber);
+        System.out.print(premierNombre);
 
         // Si le nombre demandé est supérieur à 1, affiche également le deuxième terme
-        if (number > 1) {
-            System.out.print(" - " + secondNumber);
+        if (nombre > 1) {
+            System.out.print(" - " + deuxiemeNombre);
         }
 
         // Boucle pour calculer et afficher les termes suivants
-        for (int i = 2; i < number; i++) {
+        for (int i = 2; i < nombre; i++) {
             // Calcule le terme suivant en ajoutant les deux précédents
-            BigInteger fibonacciValue = firstNumber.add(secondNumber);
+            BigInteger valeurFibonacci = premierNombre.add(deuxiemeNombre);
 
             // Affiche le terme calculé
-            System.out.print(" - " + fibonacciValue);
+            System.out.print(" - " + valeurFibonacci);
 
             // Met à jour les variables pour le prochain calcul
-            firstNumber = secondNumber;
-
-            secondNumber = fibonacciValue;
+            premierNombre = deuxiemeNombre;
+            deuxiemeNombre = valeurFibonacci;
         }
     }
 
     // Map pour stocker les résultats intermédiaires (mémorisation)
-    private static final Map<BigInteger, BigInteger> memo = new HashMap<>();
+    private static final Map<BigInteger, BigInteger> memoire = new HashMap<>();
 
     /**
      * Calcule un terme spécifique de la suite de Fibonacci en utilisant une approche récursive
      * avec mémorisation. Cette méthode permet de réduire la complexité de l'algorithme récursif
      * en mémorisant les résultats des sous-calculs.
      *
-     * @param number le rang du terme de la suite de Fibonacci à calculer.
+     * @param nombre le rang du terme de la suite de Fibonacci à calculer.
      *               Doit être un entier non négatif.
-     * @return le terme de la suite de Fibonacci au rang {@code number}.
+     * @return le terme de la suite de Fibonacci au rang {@code nombre}.
      *         Retourne un objet {@link BigInteger} représentant le terme calculé.
      */
-    public static BigInteger CalculateFibonacciRecursive(BigInteger number) {
+    public static BigInteger CalculerFibonacciRecursif(BigInteger nombre) {
         // Cas de base : Fibonacci(0) = 0 et Fibonacci(1) = 1
-        if (number.compareTo(BigInteger.ONE) <= 0) {
-            return number;
+        if (nombre.compareTo(BigInteger.ONE) <= 0) {
+            return nombre;
         }
 
         // Vérifie si le résultat est déjà mémorisé
-        if (memo.containsKey(number)) {
-            return memo.get(number); // Retourne la valeur mémorisée
+        if (memoire.containsKey(nombre)) {
+            return memoire.get(nombre); // Retourne la valeur mémorisée
         }
 
         // Calcul récursif avec mémorisation
-        BigInteger result = CalculateFibonacciRecursive(number.subtract(BigInteger.ONE))
-                .add(CalculateFibonacciRecursive(number.subtract(BigInteger.TWO)));
+        BigInteger resultat = CalculerFibonacciRecursif(nombre.subtract(BigInteger.ONE))
+                .add(CalculerFibonacciRecursif(nombre.subtract(BigInteger.TWO)));
 
         // Stocke le résultat dans la map pour un accès futur
-        memo.put(number, result);
-        return result;
+        memoire.put(nombre, resultat);
+        return resultat;
     }
 }

@@ -10,7 +10,6 @@ import java.math.BigInteger;
  * @author benkaddour
  * @author jawhar
  */
-
 public class Afficher {
 
     /**
@@ -20,9 +19,9 @@ public class Afficher {
      *
      * @return un entier représentant le nombre d'éléments à afficher dans la suite de Fibonacci.
      */
-    public static int getValidNumber() {
+    public static int obtenirNombreValide() {
         Scanner scanner = new Scanner(System.in);
-        int number;
+        int nombre;
 
         while (true) {
             try {
@@ -30,20 +29,20 @@ public class Afficher {
                 System.out.print("Combien de nombres voulez-vous dans la suite de Fibonacci ? (max 1000) ");
 
                 // Lire l'entrée utilisateur en tant que chaîne
-                String input = scanner.nextLine().trim();
+                String entree = scanner.nextLine().trim();
 
                 // Vérifie si l'utilisateur a appuyé sur "Entrée" sans rien saisir
-                if (input.isEmpty()) {
+                if (entree.isEmpty()) {
                     throw new IllegalArgumentException("Vous devez entrer un nombre.");
                 }
 
                 // Convertir l'entrée en entier
-                number = Integer.parseInt(input);
+                nombre = Integer.parseInt(entree);
 
                 // Vérification des limites
-                if (number < 0) {
+                if (nombre < 0) {
                     throw new IllegalArgumentException("Le nombre doit être positif.");
-                } else if (number > 1000) {
+                } else if (nombre > 1000) {
                     throw new IllegalArgumentException("Le nombre ne peut pas dépasser 1000.");
                 }
 
@@ -55,58 +54,58 @@ public class Afficher {
             }
         }
 
-        return number; // Retourner le nombre valide
+        return nombre; // Retourner le nombre valide
     }
 
     /**
      * Affiche la suite de Fibonacci en utilisant deux méthodes différentes : itérative et récursive.
      * Cette méthode mesure également les performances des deux méthodes en termes de durée d'exécution.
      *
-     * @param number le nombre d'éléments à afficher dans la suite de Fibonacci.
+     * @param nombre le nombre d'éléments à afficher dans la suite de Fibonacci.
      * @return un tableau de deux valeurs représentant les durées d'exécution respectives pour les méthodes itérative et récursive.
      */
-    public static long[] displayFibonacci(int number) {
-        long durationIterative = 0;
-        long durationRecursive = 0;
+    public static long[] afficherFibonacci(int nombre) {
+        long dureeIterative = 0;
+        long dureeRecursive = 0;
 
-        if (number == 0) {
+        if (nombre == 0) {
             System.out.println("Vous avez demandé 0 éléments, il n'y a rien à afficher.");
         } else {
             // Affichage de la suite Fibonacci avec la méthode itérative
             System.out.println("\nAfficher la suite de Fibonacci en utilisant la méthode itérative :");
-            long startIterative = System.nanoTime();
-            Fibonacci.CalculateFibonacciIterative(number);
-            long endIterative = System.nanoTime();
-            durationIterative = (endIterative - startIterative) / 1_000_000; // Conversion en millisecondes
-            System.out.println("\nDurée du traitement itératif : " + durationIterative + " millisecondes");
+            long debutIterative = System.nanoTime();
+            Fibonacci.CalculerFibonacciIteratif(nombre);
+            long finIterative = System.nanoTime();
+            dureeIterative = (finIterative - debutIterative) / 1_000_000; // Conversion en millisecondes
+            System.out.println("\nDurée du traitement itératif : " + dureeIterative + " millisecondes");
 
             // Affichage de la suite Fibonacci avec la méthode récursive
             System.out.println("\nAfficher la suite de Fibonacci en utilisant la méthode récursive :");
-            long startRecursive = System.nanoTime();
-            for (int i = 0; i < number; i++) {
-                System.out.print(Fibonacci.CalculateFibonacciRecursive(BigInteger.valueOf(i)) + " - ");
+            long debutRecursive = System.nanoTime();
+            for (int i = 0; i < nombre; i++) {
+                System.out.print(Fibonacci.CalculerFibonacciRecursif(BigInteger.valueOf(i)) + " - ");
             }
-            long endRecursive = System.nanoTime();
-            durationRecursive = (endRecursive - startRecursive) / 1_000_000; // Conversion en millisecondes
-            System.out.println("\nDurée du traitement récursif : " + durationRecursive + " millisecondes");
+            long finRecursive = System.nanoTime();
+            dureeRecursive = (finRecursive - debutRecursive) / 1_000_000; // Conversion en millisecondes
+            System.out.println("\nDurée du traitement récursif : " + dureeRecursive + " millisecondes");
         }
 
         // Retourner les deux durées dans un tableau
-        return new long[] {durationIterative, durationRecursive};
+        return new long[] {dureeIterative, dureeRecursive};
     }
 
     /**
      * Compare les performances des méthodes itérative et récursive en fonction de leurs durées d'exécution.
      *
-     * @param durationIterative la durée d'exécution de la méthode itérative en millisecondes.
-     * @param durationRecursive la durée d'exécution de la méthode récursive en millisecondes.
+     * @param dureeIterative la durée d'exécution de la méthode itérative en millisecondes.
+     * @param dureeRecursive la durée d'exécution de la méthode récursive en millisecondes.
      */
-    public static void comparePerformance(long durationIterative, long durationRecursive) {
+    public static void comparerPerformances(long dureeIterative, long dureeRecursive) {
         System.out.println("\nComparaison des performances :");
 
-        if (durationIterative < durationRecursive) {
+        if (dureeIterative < dureeRecursive) {
             System.out.println("La méthode itérative est la plus rapide.");
-        } else if (durationIterative > durationRecursive) {
+        } else if (dureeIterative > dureeRecursive) {
             System.out.println("La méthode récursive est la plus rapide.");
         } else {
             System.out.println("Les deux méthodes ont des performances équivalentes.");
